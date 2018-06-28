@@ -1,0 +1,23 @@
+{
+  "name": "node-udemy",
+  "version": "1.0.0",
+  "description": "Pratice on Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidLapadula/Node.js-Udemy.git"
+  },
+  "author": "David L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidLapadula/Node.js-Udemy/issues"
+  },
+  "homepage": "https://github.com/DavidLapadula/Node.js-Udemy#readme",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "yargs": "^11.0.0"
+  }
+}
