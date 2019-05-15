@@ -19,7 +19,10 @@ const redMssg = chalk
                 .inverse
                 ('Fail'); 
 
+const command = process.argv[2];
 
-console.log(greenMssg); 
-console.log(redMssg); 
- 
+if (command === 'add') {
+    console.log('here');
+} else if (command === 'remove') {
+    console.log('there'); 
+}; 
