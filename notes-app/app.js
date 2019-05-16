@@ -1,6 +1,9 @@
-const getNotes = require('./notes'); 
-const validator = require('validator');
+// Core modules
+const yargs = require('yargs'); 
 const chalk = require('chalk'); 
+const validator = require('validator');
+// My own packages
+const getNotes = require('./notes'); 
 
 
 // console.log(validator.isEmail('example.com')); 
@@ -19,10 +22,46 @@ const redMssg = chalk
                 .inverse
                 ('Fail'); 
 
+
+// command line instances with raw node
 const command = process.argv[2];
 
-if (command === 'add') {
-    console.log('here');
-} else if (command === 'remove') {
-    console.log('there'); 
-}; 
+
+// create the add command
+yargs.command({
+    command: 'add', 
+    describe: 'Add a new note', 
+    handler: function () {
+        console.log('add new note'); 
+    }
+}); 
+
+// create remove command
+yargs.command({
+    command: 'remove', 
+    describe: 'Remove a new note', 
+    handler: function () {
+        console.log('removing note'); 
+    }
+}); 
+
+// create list command
+yargs.command({
+    command: 'list', 
+    describe: 'List all notes', 
+    handler: function () {
+        console.log('listing all notes'); 
+    }
+}); 
+
+// create the read command
+yargs.command({
+    command: 'read', 
+    describe: 'Read a note', 
+    handler: function () {
+        console.log('reading a note'); 
+    }
+}); 
+
+// check the commands available
+console.log(yargs.argv); 
