@@ -2,6 +2,7 @@
 const yargs = require('yargs'); 
 const chalk = require('chalk'); 
 const validator = require('validator');
+const fs = require('fs'); 
 // My own packages
 const getNotes = require('./notes'); 
 
