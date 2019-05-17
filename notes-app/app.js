@@ -4,7 +4,7 @@ const chalk = require('chalk');
 const validator = require('validator');
 const fs = require('fs'); 
 // My own packages
-const getNotes = require('./notes'); 
+const notes = require('./notes'); 
 
 
 // console.log(validator.isEmail('example.com')); 
@@ -46,8 +46,7 @@ yargs.command({
 
     },
     handler: function (argv) {
-        console.log('Title: ' + argv.title); 
-        console.log('Body: ' + argv.body); 
+        notes.addNote(argv.title, argv.body); 
     }
 }); 
 
