@@ -1,15 +1,30 @@
 const fs = require('fs'); 
 const chalk = require('chalk'); 
 
-const getNotes = () => {
- 'This is a note....'; 
+const getNotes = (title) => {
+
 }; 
 
-const addNote = (title, body) => {
+const readNote = (title) => {
     const notes = loadNotes(); 
-    const duplicateNotes = notes.filter((note) => note.title === title); 
 
-    if(duplicateNotes.length === 0) {
+    const note = notes.find((note) => note.title === title); 
+
+    if (note)  {
+        console.log(chalk.inverse(note.title)); 
+        console.log(note.body); 
+    } else {
+        console.log(chalk.inverse.red(title + ' not found')); 
+    }
+}; 
+
+
+const addNote = (title, body) => {
+    const notes = loadNotes();  
+    // find will stop after finding success, unlike filter which will look through all no matter what
+    const duplicateNote = notes.find((note) => note.title === title); 
+
+    if(!duplicateNote) {
         notes.push({
             title: title, 
             body: body
@@ -35,6 +50,14 @@ const removeNote = (title) => {
     }; 
 }; 
 
+const listNotes = () => {
+    const notes = loadNotes(); 
+
+    notes.forEach((note) => {
+        console.log(note.title);
+    }); 
+}; 
+
 const saveNotes = (notes) => {
     const dataJSON = JSON.stringify(notes); 
     fs.writeFileSync('notes.json', dataJSON); 
@@ -53,5 +76,7 @@ const loadNotes = () => {
 module.exports = {
     getNotes: getNotes, 
     addNote: addNote, 
-    removeNote: removeNote
+    removeNote: removeNote, 
+    listNotes: listNotes, 
+    readNote, readNote
 }; 
