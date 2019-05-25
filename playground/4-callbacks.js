@@ -7,19 +7,23 @@ const shortNames = names.filter((name) => {
     return name.length >= 5;
 });
 
+
+
 const geocode = (address, callback) => {
     setTimeout(() => {
         const data = {
             latitude: 0,
             longitude: 0
         };
-        callback(data) 
+        callback(data); 
     }, 2000);
 }; 
 
 geocode('Philadephia', (data) => {
     console.log(data);
 }); 
+
+
 
 const add = (a, b, callback) => {
     setTimeout(() => {
