@@ -25,7 +25,7 @@ app.get('', (req, res) => {
         title: 'Weather',
         name: 'David'
     });
-});
+}); 
 
 app.get('/about', (req, res) => {
     res.render('about', {
