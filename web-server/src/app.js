@@ -40,7 +40,7 @@ app.get('/help', (req, res) => {
         name: 'David',
         helptext: 'Helpful text'
     });
-});
+});   
 
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
