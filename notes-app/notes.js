@@ -24,8 +24,6 @@ const addNote = (title, body) => {
     // find will stop after finding success, unlike filter which will look through all no matter what
     const duplicateNote = notes.find((note) => note.title === title); 
 
-    debugger; 
-
     if(!duplicateNote) {
         notes.push({
             title: title, 
