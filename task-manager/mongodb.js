@@ -19,91 +19,91 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
 
     // Instertions
 
-    // db.collection('users').insertOne({
-    //     _id: id, 
-    //     name: 'Serge',
-    //     age: 25
-    // }, (error, result) => {
-    //     if(error) {
-    //         return console.log('Cannot inster user');
-    //     }
+    db.collection('users').insertOne({
+        _id: id, 
+        name: 'Serge',
+        age: 25
+    }, (error, result) => {
+        if(error) {
+            return console.log('Cannot inster user');
+        }
 
-    //     console.log(result.ops);
-    // });
+        console.log(result.ops);
+    });
 
-    // db.collection('users').insertMany([
-    //     {
-    //         name: 'Matthew', 
-    //         age: 25
-    //     }, 
-    //     {
-    //         name: 'John', 
-    //         age: 250
-    //     }
-    // ], (error, result) => {
-    //             if(error) {
-    //         return console.log('Cannot inster documents');
-    //     }
+    db.collection('users').insertMany([
+        {
+            name: 'Matthew', 
+            age: 25
+        }, 
+        {
+            name: 'John', 
+            age: 250
+        }
+    ], (error, result) => {
+                if(error) {
+            return console.log('Cannot inster documents');
+        }
 
-    //     console.log(result.ops);
-    // }); 
+        console.log(result.ops);
+    }); 
 
-    // db.collection('tasks').insertMany([
-    //     {
-    //         description: 'Shopping',
-    //         completed: false 
-    //     },  
-    //     {
-    //         description: 'eat',
-    //         completed: true 
-    //     },  
-    //     {
-    //         description: 'get gas',
-    //         completed: false 
-    //     },  
-    // ], (error, result) => {
-    //     if (error) {
-    //         return console.log('Could not insert tasks')
-    //     }
+    db.collection('tasks').insertMany([
+        {
+            description: 'Shopping',
+            completed: false 
+        },  
+        {
+            description: 'eat',
+            completed: true 
+        },  
+        {
+            description: 'get gas',
+            completed: false 
+        },  
+    ], (error, result) => {
+        if (error) {
+            return console.log('Could not insert tasks')
+        }
 
-    //     console.log(result.ops);
-    // }); 
+        console.log(result.ops);
+    }); 
 
     // Fetching data
 
-    // db.collection('users').findOne({
-    //     name: 'David', 
-    //     age: 8
-    // }, (error, user) => {
-    //     if (error) {
-    //         return console.log('Error');
-    //     }; 
+    db.collection('users').findOne({
+        name: 'David', 
+        age: 8
+    }, (error, user) => {
+        if (error) {
+            return console.log('Error');
+        }; 
 
-    //     console.log(user);
+        console.log(user);
 
-    // }); 
+    }); 
 
-    // db.collection('users').find({
-    //     age: 25
-    // }).toArray( (error, user) => {
-    //     if (error) {
-    //         return console.log('Error');
-    //     }; 
+    db.collection('users').find({
+        age: 25
+    }).toArray( (error, user) => {
+        if (error) {
+            return console.log('Error');
+        }; 
 
-    //     console.log(user);
+        console.log(user);
 
-    // }); 
+    }); 
 
-    // db.collection('users').find({
-    //     age: 25
-    // }).count( (error, user) => {
-    //     if (error) {
-    //         return console.log('Error');
-    //     }; 
+    db.collection('users').find({
+        age: 25
+    }).count( (error, user) => {
+        if (error) {
+            return console.log('Error');
+        }; 
 
-    //     console.log(user);
+        console.log(user);
 
-    // });
+    });
 
 
     // Updating documents
@@ -139,4 +139,15 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         .catch((err) => {
             console.log('There was an error');
         });
+
+    // Deleting Documents
+    db.collection('tasks').deleteOne({
+            task: 'Clean Garbage'
+        })
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        }); 
 }); 
