@@ -10,4 +10,19 @@ Task.findByIdAndDelete('5d084521629add0dcca61746')
     })
     .catch((e) => {
         console.log(e);
-    }); 
+    });
+
+const deleteTaskAndCount = async (id) => {
+    await Task.findByIdAndDelete(id);
+    const count = await Task.countDocuments({ completed: false });
+    return count;
+};
+
+deleteTaskAndCount('5d084521629add0dcca61746')
+    .then((count) => {
+        console.log(count);
+    })
+    .catch((e) => {
+        console.log(e);
+
+    })
