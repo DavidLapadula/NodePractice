@@ -2,7 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const User = require('../models/user');
 const auth = require('../middleware/auth');
-const multer = require('multer'); 
+const multer = require('multer');
 
 router.post('/users', async (req, res) => {
     const user = new User(req.body);
@@ -72,7 +72,7 @@ router.patch('/users/me', auth, async (req, res) => {
 
 router.delete('/users/me', auth, async (req, res) => {
     try {
-        await req.user.remove(); 
+        await req.user.remove();
         res.send(req.user);
     } catch (error) {
         res.status(500).send(e);
@@ -80,12 +80,23 @@ router.delete('/users/me', auth, async (req, res) => {
 });
 
 const upload = multer({
-    desc: 'avatars'
+    desc: 'avatars',
+    limits: {
+        fileSize: 1000000
+    },
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpg|png)$/)) {
+            return cb(new Error('Please upload a word document'));
+        }
+        cb(undefined, true)
+    }
 });
 
-router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
+router.post('/users/me/avatar', upload.single('upload'), (req, res) => {
 
-}); 
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message });
+});
 
 
 
