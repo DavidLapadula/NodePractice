@@ -18,9 +18,12 @@ app.use(express.static(publicDirectoryPath));
 io.on('connection', (socket) => {
     console.log('new connection');
 
-    socket.emit('message', generateMessage('Welcome'));
+    socket.on('join', ({ username, room }) => {
+        socket.join(room);
+        socket.emit('message', generateMessage('Welcome'));
+        socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined`));
 
-    socket.broadcast.emit('message', generateMessage('A new user has joined'));
+    });
 
     socket.on('sendMessage', (message, callback) => {
         const filter = new Filter();
@@ -36,7 +39,7 @@ io.on('connection', (socket) => {
         io.emit('locationMessage', generateLocationMessage(`https://google.com/maps?q=${coords.latitude}${coords.longitude}`));
         callback('Location shared');
     });
-    
+
     socket.on('disconnect', () => {
         io.emit('message', generateMessage('user has left the chat'));
     });
