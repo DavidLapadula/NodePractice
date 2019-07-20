@@ -1,80 +1,49 @@
-# README-README: A Style Guide for README files
+## Node practice projects
 
-## Contents
+This repository is a collection of practice projects used for enhancing proficiency with mainly Node.js, as well as Express.js, MongoDB, and Socket.io
 
-The `README.md` file and supporting documents should describe the following, in this order. If the file starts getting long, break it into pieces
+* **Chat Application** 
+  - Simple chat applcation uses socket.io
+    - Users can join rooms and send messages to each other
+    - Program tracks users who are online
 
-* **Project Titles** as a level-1 heading
-  - with descriptive tagline: I should be informed and intrigued. Examples:
-    - "Sinatra is a DSL for quickly creating web applications in Ruby with minimal
-effort"
-    - "Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Controller (MVC) pattern."
-    - "Resque (pronounced like "rescue") is a Redis-backed library for creating
-background jobs, placing those jobs on multiple queues, and processing
-them later."
+* **Task manager** 
+  - Allows the users to store tasks, and add pictures to each task
+    - Data persistency achieved with Mongoose/MongoDB
 
-* **Overview**
-  - what it does
-  - why you might want to use it, and why you might not
+## Example Screenshot
 
-* **Example Usage**: a basic example. Nothing fancy -- put rich examples in the detailed usage section
+### Basic USage
+***
 
-* **Getting Started**
-  - installation & prerequisites
-  - how to run examples and tests
-    - include a `Procfile` to start any necessary servers or daemon processes
-  - location of:
-    - code
-    - issue tracker
-    - wiki
-    - blog posts, screencasts, etc
-    - compiled documentation (add the project to [rdoc.info](http://rdoc.info))
-    - travis-ci results
-    - mailing list
+![Chat app](./chat.gif)
 
-* **Design Goals**
-  - lightweight or full-featured?
-  - performance, flexibility, expressiveness?
+## Tech/framework used
 
-* **Detailed Usage**
-  - models and interface
-  - examples
-  - configuration
-  - middleware or plugins
-  - how it works
+<b>Built with</b>
+- [Node.js](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com/)
+- [Mongoose ORM](https://mongoosejs.com/)
+- [Express Web Server](https://expressjs.com/)
+- [Socket.io](https://socket.io/)
 
-* **Comparable Tools**
+## Installation
 
-* **Developer info**
-  - Important Components
-  - layout of internal code tree
-  - Limitations and known issues
-  - performance and benchmarking
+### If you want to try the chat app on your local computer, or make your own copy: 
 
-* **Colophon**
-  - Credits -- everyone who has contributed code, libraries from which we've borrowed code.
-  - Copyright and License -- state the license type (typically "Apache 2.0" or "All Rights Reserved and Confidential") and refer to the `LICENSE.md` file. Don't paste the license contents in here.
-  - How to contribute
-  - References
+<b>First Install some necessary tools</b>
+- [Node.js](https://nodejs.org/en/)
+- [MongoDB](https://www.mongodb.com/)
 
-## Formatting
+```
+1. Fork the repository and clone it into a folder on your computer. 
+2. Navgiate to the root directory (cd chat-app) and run 'npm install' in the terminal'
+3. Navigate into the 'src' directory (cd src) and run the command 'node index.js' in the termal
+4. Open a browser and head to localhost:3000, and the app should display!
+5. Open another browser and head to the same URL to see the chat funcitonality at work
+```
 
-* Call the file `README.md`.
-* Write in markdown format.
-  - You should use triple backtick blocks for code, and supply a language prefix:
+## Acknowledgments
 
-        ```ruby
-        def hello(str)
-          puts "hello #{str}!"
-        end
-        ```
-
-* Do not wrap lines. In emacs, enable the `longlines-mode` to make your document word wrap intelligently.
-
-
-
-
-## Supporting Documentation
-
-Besides a `README.md`, your repo should contain a `CHANGELOG.md` summarizing major code changes, a `LICENSE.md` describing the code's license (typically Apache 2.0 for our open-source projects, All Rights Reserved for internal projects), and a `notes/` directory that is a git submodule of the project's wiki. See the [style guide for repo organization](https://github.com/roachhd/style_guide/blob/master/style-guide-for-repo-organization.md) for more details.
+* Hat tip to Andrew Mead; I followed his Node.js course on Udemy to create these projects
+* I recommend anyone interested in learning programming to take one of his courses; he is an excellent insructor. 
