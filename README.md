@@ -13,7 +13,7 @@ This repository is a collection of practice projects used for enhancing proficie
 
 ## Example Screenshot
 
-### Basic USage
+### Basic Usage
 ***
 
 ![Chat app](./chat.gif)
