@@ -42,8 +42,3 @@ This repository is a collection of practice projects used for enhancing proficie
 4. Open a browser and head to localhost:3000, and the app should display!
 5. Open another browser and head to the same URL to see the chat funcitonality at work
 ```
-
-## Acknowledgments
-
-* Hat tip to Andrew Mead; I followed his Node.js course on Udemy to create these projects
-* I recommend anyone interested in learning programming to take one of his courses; he is an excellent insructor. 
