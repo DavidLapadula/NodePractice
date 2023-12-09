@@ -1,6 +1,6 @@
 ## Node practice projects
 
-This repository is a collection of practice projects used for enhancing proficiency with mainly Node.js, as well as Express.js, MongoDB, and Socket.io
+This repository is a collection of practice projects used for enhancing proficiency with mainly Node.js, as well as Express.js, MongoDB, and Socket.io. 
 
 * **Chat Application** 
   - Simple chat applcation uses socket.io
